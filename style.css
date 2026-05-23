@@ -1,19 +1,18 @@
 body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      height: 100vh;
-      margin: 0;
-      padding: 60px 0;
-      box-sizing: border-box;
-      background: #1a1a2e;
-      font-family: Arial, sans-serif;
-      color: white;
-      cursor:url('pointer1.png'), pointer;
-      user-select: none;
-
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  margin: 0;
+  padding: 60px 0;
+  box-sizing: border-box;
+  background: #0a0a0a;
+  font-family: Arial, sans-serif;
+  color: white;
+  cursor: default;
+  user-select: none;
+}
 
 #PointsContainer {
   display: flex;
@@ -25,81 +24,248 @@ body {
 #PointsName {
   font-size: 80px;
   font-weight: bold;
-  color:whitesmoke;
+  color: white;
 }
 
 #Points {
   font-size: 80px;
   font-weight: bold;
-  color:blueviolet;
+  color: #ff3333;
 }
 
-/* Animacja do Points co zwieksza i zmniejsza po zdobyciu punkta */
 @keyframes popUp {
-    0%   { transform: scale(1); }
-    50%  { transform: scale(1.2); }
-    100% { transform: scale(1); }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
 .pop {
-    animation: popUp 0.15s ease;
+  animation: popUp 0.15s ease;
 }
 
+@keyframes criticalFlash {
+  0% {
+    background-color: rgba(255, 50, 50, 0);
+    transform: scale(1);
+  }
+  50% {
+    background-color: rgba(255, 50, 50, 0.8);
+    transform: scale(1.1);
+  }
+  100% {
+    background-color: rgba(255, 50, 50, 0);
+    transform: scale(1);
+  }
+}
 
 #ClickBtn {
   font-size: 60px;
   padding: 20px 80px;
-  cursor:url('pointer1.png'), auto;
-  border: none;
-  border-radius: 20px;
-  background: #e94560;
+  cursor: url('pointer1.png'), auto;
+  border: 2px solid #ff3333;
+  border-radius: 0;
+  background: #1a1a1a;
   color: white;
+  transition: all 0.1s;
+  font-weight: bold;
 }
 
 #ClickBtn:active {
   transform: scale(0.95);
-  cursor:url('pointer1.png'), auto;
-}
-#ClickBtn:hover{
-  transform: scale(1.05);
-  cursor:url('pointer1.png'), auto;
+  background: #ff3333;
+  color: #1a1a1a;
 }
 
+#ClickBtn:hover {
+  transform: scale(1.05);
+  background: #ff3333;
+  color: #1a1a1a;
+}
+
+#ClickBtn.critical-hit {
+  animation: criticalFlash 0.3s ease-out;
+  box-shadow: 0 0 30px rgba(255, 50, 50, 1);
+}
 
 #Shop1 {
   display: flex;
   gap: 40px;
 }
+
 #Shop2 {
   display: flex;
   gap: 30px;
 }
 
-.upgrade1 {
-  background: #142a66;
-  border: 2px solid whitesmoke;
-  border-radius: 12px;
-  padding: 10px 40px;
+#Shop3 {
+  display: flex;
+  gap: 30px;
+}
+
+.upgrade1,
+.upgrade2,
+.upgrade3 {
+  background: #1a1a1a;
+  border: 2px solid white;
+  border-radius: 0;
+  padding: 15px 30px;
   text-align: center;
   cursor: url('pointer1.png'), auto;
-  transition: transform 0.2s;
+  transition: all 0.2s;
+  font-weight: bold;
+  min-width: 120px;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.upgrade1:hover {
-  transform: scale(1.2);
+.upgrade1:hover,
+.upgrade2:hover,
+.upgrade3:hover {
+  background: white;
+  color: #1a1a1a;
+  transform: scale(1.1);
 }
 
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
 
-.upgrade2 {
-  background: #142a66;
-  border: 2px solid whitesmoke;
-  border-radius: 12px;
-  padding: 5px 15px;
+.modal-box {
+  background: #1a1a1a;
+  border: 3px solid #ff3333;
+  border-radius: 0;
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 320px;
   text-align: center;
-  cursor: url('pointer1.png'), auto;
-  transition: transform 0.2s;
 }
 
-.upgrade2:hover {
-  transform: scale(1.2);
+.modal-box h2 {
+  margin: 0;
+  font-size: 28px;
+  color: #ff3333;
+  font-weight: bold;
+}
+
+.modal-box input {
+  padding: 12px 16px;
+  border-radius: 0;
+  border: 2px solid #333;
+  background: #0a0a0a;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  font-weight: bold;
+}
+
+.modal-box input:focus {
+  border-color: #ff3333;
+  background: #1a1a1a;
+}
+
+.modal-box button {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid #ff3333;
+  border-radius: 0;
+  background: #1a1a1a;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-box button:hover {
+  background: #ff3333;
+  color: #1a1a1a;
+}
+
+.auth-error {
+  color: #ff5555;
+  font-size: 13px;
+  min-height: 18px;
+  font-weight: bold;
+}
+
+.auth-switch {
+  font-size: 13px;
+  color: #aaa;
+  margin: 0;
+}
+
+.auth-switch span {
+  color: #ff3333;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#UserBar {
+  display: none;
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+#UserBarName {
+  font-size: 14px;
+  color: #ccc;
+  font-weight: bold;
+}
+
+#SaveBtn, #LogoutBtn {
+  font-size: 13px;
+  padding: 6px 14px;
+  border: 2px solid;
+  border-radius: 0;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+#SaveBtn {
+  border-color: #3366ff;
+  background: #1a1a1a;
+  color: #3366ff;
+}
+
+#SaveBtn:hover {
+  background: #3366ff;
+  color: #1a1a1a;
+}
+
+#LogoutBtn {
+  border-color: #666;
+  background: #1a1a1a;
+  color: #666;
+}
+
+#LogoutBtn:hover {
+  background: #666;
+  color: #1a1a1a;
+}
+
+#Stats {
+  font-weight: bold;
+  text-align: center;
+}
+
+#Stats h1 {
+  margin: 5px 0;
+  font-size: 18px;
 }

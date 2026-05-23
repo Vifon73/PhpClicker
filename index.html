@@ -9,12 +9,28 @@
     <script src='script.js' defer></script>
 </head>
 <body>
-
+<div id="AuthModal" class="modal-overlay">
+    <div class="modal-box">
+        <h2 id="AuthTitle">Logowanie</h2>
+        <div id="AuthError" class="auth-error"></div>
+        <input type="text" id="AuthUsername" placeholder="Nazwa użytkownika" />
+        <input type="password" id="AuthPassword" placeholder="Hasło" />
+        <button id="AuthSubmitBtn" onclick="submitAuth()">Zaloguj się</button>
+        <p class="auth-switch">
+            Nie masz konta?
+            <span id="AuthSwitchLink" onclick="toggleAuthMode()">Zarejestruj się</span>
+        </p>
+    </div>
+</div>
+<div id="UserBar">
+    <span id="UserBarName"></span>
+    <button id="SaveBtn" onclick="saveGame()">Zapisz</button>
+    <button id="LogoutBtn" onclick="logout()">Wyloguj</button>
+</div>
 <div id="PointsContainer">
     <div id="PointsName">- Kitty Points -</div>
     <div id="Points">0</div>
 </div>
-
 <div id="Shop1">
     <div class="upgrade1" onclick="buyUpgrade1()">
         <h1>1+ do Kliku</h1>
@@ -29,28 +45,45 @@
         <p>koszt: <span id="cost3">500</span> Kitty Points</p>
     </div>
 </div>
-
 <div id="Shop2">
     <div class="upgrade2" onclick="buyUpgrade4()">
-        <h1>1+ do Kliku</h1>
-        <p>koszt: <span id="cost4">50</span> Kitty Points</p>
+        <h1>Ostra Krawędź</h1>
+        <p>Szansa na Kryt: <span id="criticalChanceDisplay">0</span>%</p>
+        <p>koszt: <span id="cost4">1200</span> Kitty Points</p>
     </div>
     <div class="upgrade2" onclick="buyUpgrade5()">
-        <h1>AutoMiau</h1>
-        <p>koszt: <span id="cost5">100</span> Kitty Points</p>
+        <h1>Wzmacniacz Krytyka</h1>
+        <p>Mnożnik: <span id="criticalMultiplierDisplay">1.00</span>x</p>
+        <p>koszt: <span id="cost5">1500</span> Kitty Points</p>
     </div>
     <div class="upgrade2" onclick="buyUpgrade6()">
-        <h1>Miau ²</h1>
-        <p>koszt: <span id="cost6">500</span> Kitty Points</p>
+        <h1>Łańcuch Ataków</h1>
+        <p>Combo: <span id="comboMultiplierDisplay">1.00</span>x</p>
+        <p>koszt: <span id="cost6">1800</span> Kitty Points</p>
     </div>
 </div>
-
+<div id="Shop3">
+    <div class="upgrade3" onclick="buyUpgrade7()">
+        <h1>Koci Pazur</h1>
+        <p>+10% do Kliku</p>
+        <p>koszt: <span id="cost7">800</span> Kitty Points</p>
+    </div>
+    <div class="upgrade3" onclick="buyUpgrade8()">
+        <h1>Koci Sen</h1>
+        <p>+10% do AutoMiau</p>
+        <p>koszt: <span id="cost8">800</span> Kitty Points</p>
+    </div>
+    <div class="upgrade3" onclick="buyUpgrade9()">
+        <h1>Koci Instynkt</h1>
+        <p>+10% do obu</p>
+        <p>koszt: <span id="cost9">2000</span> Kitty Points</p>
+    </div>
+</div>
 <div id="Stats">
     <div>
-        <h1>Wartosc Miau: <span id="valueOfClick">1</span></h1>
-        <h1>Wartosc AutoMiau: <span id="valueOfAutoMiau">0</span></h1>
+        <h1>Wartość Miau: <span id="valueOfClick">1</span></h1>
+        <h1>Wartość AutoMiau: <span id="valueOfAutoMiau">0</span></h1>
     </div>
-
 </div>
 <button onclick="getPoints()" id="ClickBtn">Miau</button>
 </body>
