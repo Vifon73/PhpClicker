@@ -1,0 +1,105 @@
+body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100vh;
+      margin: 0;
+      padding: 60px 0;
+      box-sizing: border-box;
+      background: #1a1a2e;
+      font-family: Arial, sans-serif;
+      color: white;
+      cursor:url('pointer1.png'), pointer;
+      user-select: none;
+
+    }
+
+#PointsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#PointsName {
+  font-size: 80px;
+  font-weight: bold;
+  color:whitesmoke;
+}
+
+#Points {
+  font-size: 80px;
+  font-weight: bold;
+  color:blueviolet;
+}
+
+/* Animacja do Points co zwieksza i zmniejsza po zdobyciu punkta */
+@keyframes popUp {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.pop {
+    animation: popUp 0.15s ease;
+}
+
+
+#ClickBtn {
+  font-size: 60px;
+  padding: 20px 80px;
+  cursor:url('pointer1.png'), auto;
+  border: none;
+  border-radius: 20px;
+  background: #e94560;
+  color: white;
+}
+
+#ClickBtn:active {
+  transform: scale(0.95);
+  cursor:url('pointer1.png'), auto;
+}
+#ClickBtn:hover{
+  transform: scale(1.05);
+  cursor:url('pointer1.png'), auto;
+}
+
+
+#Shop1 {
+  display: flex;
+  gap: 40px;
+}
+#Shop2 {
+  display: flex;
+  gap: 30px;
+}
+
+.upgrade1 {
+  background: #142a66;
+  border: 2px solid whitesmoke;
+  border-radius: 12px;
+  padding: 10px 40px;
+  text-align: center;
+  cursor: url('pointer1.png'), auto;
+  transition: transform 0.2s;
+}
+
+.upgrade1:hover {
+  transform: scale(1.2);
+}
+
+
+.upgrade2 {
+  background: #142a66;
+  border: 2px solid whitesmoke;
+  border-radius: 12px;
+  padding: 5px 15px;
+  text-align: center;
+  cursor: url('pointer1.png'), auto;
+  transition: transform 0.2s;
+}
+
+.upgrade2:hover {
+  transform: scale(1.2);
+}

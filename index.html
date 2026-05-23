@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Kitty Clicker</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src='script.js' defer></script>
+</head>
+<body>
+
+<div id="PointsContainer">
+    <div id="PointsName">- Kitty Points -</div>
+    <div id="Points">0</div>
+</div>
+
+<div id="Shop1">
+    <div class="upgrade1" onclick="buyUpgrade1()">
+        <h1>1+ do Kliku</h1>
+        <p>koszt: <span id="cost1">50</span> Kitty Points</p>
+    </div>
+    <div class="upgrade1" onclick="buyUpgrade2()">
+        <h1>AutoMiau</h1>
+        <p>koszt: <span id="cost2">100</span> Kitty Points</p>
+    </div>
+    <div class="upgrade1" onclick="buyUpgrade3()">
+        <h1>Miau ²</h1>
+        <p>koszt: <span id="cost3">500</span> Kitty Points</p>
+    </div>
+</div>
+
+<div id="Shop2">
+    <div class="upgrade2" onclick="buyUpgrade4()">
+        <h1>1+ do Kliku</h1>
+        <p>koszt: <span id="cost4">50</span> Kitty Points</p>
+    </div>
+    <div class="upgrade2" onclick="buyUpgrade5()">
+        <h1>AutoMiau</h1>
+        <p>koszt: <span id="cost5">100</span> Kitty Points</p>
+    </div>
+    <div class="upgrade2" onclick="buyUpgrade6()">
+        <h1>Miau ²</h1>
+        <p>koszt: <span id="cost6">500</span> Kitty Points</p>
+    </div>
+</div>
+
+<div id="Stats">
+    <div>
+        <h1>Wartosc Miau: <span id="valueOfClick">1</span></h1>
+        <h1>Wartosc AutoMiau: <span id="valueOfAutoMiau">0</span></h1>
+    </div>
+
+</div>
+<button onclick="getPoints()" id="ClickBtn">Miau</button>
+</body>
+</html>
