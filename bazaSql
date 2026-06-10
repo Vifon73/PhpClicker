@@ -1,0 +1,29 @@
+CREATE DATABASE IF NOT EXISTS phpclicker;
+ 
+USE phpclicker;
+ 
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL
+);
+ 
+CREATE TABLE game_saves (
+    user_id INT PRIMARY KEY,
+    points BIGINT DEFAULT 0,
+    value_of_click INT DEFAULT 1,
+    value_of_auto INT DEFAULT 0,
+    critical_chance FLOAT DEFAULT 0,
+    critical_multiplier FLOAT DEFAULT 1,
+    combo_multiplier FLOAT DEFAULT 1,
+    cost_upgrade1 INT DEFAULT 10,
+    cost_upgrade2 INT DEFAULT 50,
+    cost_upgrade3 INT DEFAULT 100,
+    cost_upgrade4 INT DEFAULT 200,
+    cost_upgrade5 INT DEFAULT 500,
+    cost_upgrade6 INT DEFAULT 1000,
+    cost_upgrade7 INT DEFAULT 2000,
+    cost_upgrade8 INT DEFAULT 5000,
+    cost_upgrade9 INT DEFAULT 10000,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
